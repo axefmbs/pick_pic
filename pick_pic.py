@@ -77,6 +77,49 @@ def ansysispic(path):
                 print file,'is except'
     print 
     return result
+def getvalue(result,key='Make'):
+    '''
+    Image Description 图像描述、来源. 指生成图像的工具
+    Artist作者 有些相机可以输入使用者的名字
+    Make 生产者 指产品生产厂家
+    Model 型号 指设备型号
+    Orientation方向 有的相机支持，有的不支持
+    XResolution/YResolution X/Y方向分辨率 本栏目已有专门条目解释此问题。
+    ResolutionUnit分辨率单位 一般为PPI
+    Software软件 显示固件Firmware版本
+    DateTime日期和时间
+    YCbCrPositioning 色相定位
+    ExifOffsetExif信息位置，定义Exif在信息在文件中的写入，有些软件不显示。
+    ExposureTime 曝光时间 即快门速度
+    FNumber光圈系数
+    ExposureProgram曝光程序 指程序式自动曝光的设置，各相机不同,可能是Sutter Priority（快门优先）、Aperture Priority（快门优先）等等。
+    ISO speed ratings感光度
+    ExifVersionExif版本
+    DateTimeOriginal创建时间
+    DateTimeDigitized数字化时间
+    ComponentsConfiguration图像构造（多指色彩组合方案）
+    CompressedBitsPerPixel(BPP)压缩时每像素色彩位 指压缩程度
+    ExposureBiasValue曝光补偿。
+    MaxApertureValue最大光圈
+    MeteringMode测光方式， 平均式测光、中央重点测光、点测光等。
+    Lightsource光源 指白平衡设置
+    Flash是否使用闪光灯。
+    FocalLength焦距，一般显示镜头物理焦距，有些软件可以定义一个系数，从而显示相当于35mm相机的焦距
+    MakerNote(User Comment)作者标记、说明、记录
+    FlashPixVersionFlashPix版本 （个别机型支持）
+    ColorSpace色域、色彩空间
+    ExifImageWidth(Pixel X Dimension)图像宽度 指横向像素数
+    ExifImageLength(Pixel Y Dimension)图像高度 指纵向像素数
+    Interoperability IFD通用性扩展项定义指针 和TIFF文件相关，具体含义不详
+    FileSource源文件 Compression压缩比。
+    '''
+    keys=result.keys()
+    if key not in keys:
+        return False
+    return result[key]
+
+def getkeys(result):
+    return result.keys()
 
 def writelog(result,logfile='./log.log'):
     FILE=open(logfile,'a')

@@ -2,4 +2,4 @@
 from distutils.core import setup
 import py2exe
 
-setup(console=["parser_pic.py"])
+setup(console=["pick_pic.py"])
